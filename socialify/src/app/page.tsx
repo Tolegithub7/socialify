@@ -5,7 +5,7 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import { Button } from '@/components/ui/button'
-import ModeToggle from '@/components/ui/Modetoggle'
+import ModeToggle from '@/components/Modetoggle'
 export default function Home() {
   return (
     <div>
