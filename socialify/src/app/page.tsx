@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <SignedOut>
         <SignInButton mode='modal'>
-          <button className='bg-slate500'></button>
+          <button className='bg-slate-500 border border-spacing-2'> SignIn </button>
         </SignInButton>
       </SignedOut>
       <SignedIn>
