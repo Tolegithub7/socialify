@@ -5,20 +5,12 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import { Button } from '@/components/ui/button'
-import ModeToggle from '@/components/Modetoggle'
 export default function Home() {
   return (
     <div>
-      <SignedOut>
-        <SignInButton mode='modal'>
-          <Button> SignIn </Button>
-        </SignInButton>
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
-      <ModeToggle />
-      <Button variant={"secondary"}> Click Me </Button>
+      <h1>
+        Home page main content
+      </h1>
     </div>
   );
 }

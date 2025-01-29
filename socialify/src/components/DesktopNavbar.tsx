@@ -15,7 +15,7 @@ import { BellIcon, HomeIcon, UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { SignInButton, UserButton } from "@clerk/nextjs";
-import ModeToggle from "./ModeToggle";
+import ModeToggle from "./Modetoggle";
 import { currentUser } from "@clerk/nextjs/server";
 
 async function DesktopNavbar() {
