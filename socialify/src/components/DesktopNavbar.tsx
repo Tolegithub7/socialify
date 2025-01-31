@@ -1,16 +1,3 @@
-// import { currentUser } from "@clerk/nextjs/server";
-
-// async function DesktopNavbar() {
-//     const user = currentUser();
-//     console.log(user, "user is here...");
-//   return (
-//     <div>
-//       DesktopNB
-//     </div>
-//   )
-// }
-
-// export default DesktopNavbar
 import { BellIcon, HomeIcon, UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -31,6 +18,7 @@ async function DesktopNavbar() {
           <span className="hidden lg:inline">Home</span>
         </Link>
       </Button>
+
       {user ? (
         <>
           <Button variant="ghost" className="flex items-center gap-2" asChild>
