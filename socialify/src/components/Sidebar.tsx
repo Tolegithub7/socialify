@@ -80,7 +80,7 @@ export default Sidebar
 
 const UnAuthenticatedSidebar = () => (
   <div className="sticky top-20">
-    <Card>
+    <Card className="w-full border-2 border-dashed">
       <CardHeader>
         <CardTitle className="text-center text-xl font-semibold">Welcome Back!</CardTitle>
       </CardHeader>

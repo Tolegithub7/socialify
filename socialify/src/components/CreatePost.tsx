@@ -57,6 +57,8 @@ function CreatePost() {
             />
           </div>
 
+          {/* TODO: Handle image upload  */}
+
           {(showImageUpload || imageUrl) && (
             <div className="border rounded-lg p-4">
               {/* <ImageUpload
