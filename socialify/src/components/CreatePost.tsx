@@ -77,7 +77,7 @@ function CreatePost() {
             <div className="flex space-x-2">
               <Button
                 type="button"
-                variant="ghost"
+                variant="secondary"
                 size="sm"
                 className="text-muted-foreground hover:text-primary"
                 onClick={() => setShowImageUpload(!showImageUpload)}

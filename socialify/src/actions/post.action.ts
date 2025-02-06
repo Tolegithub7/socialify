@@ -18,7 +18,7 @@ export async function createPost(content: string, image: string) {
       },
     });
 
-    revalidatePath("/"); // purge the cache for the home page
+    revalidatePath("/"); // purge the cache for the home page / as you post it fetched to home page
     return { success: true, post };
   } catch (error) {
     console.error("Failed to create post:", error);
