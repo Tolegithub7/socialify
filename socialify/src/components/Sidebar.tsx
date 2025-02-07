@@ -12,7 +12,7 @@ async function Sidebar() {
   const authUser = await currentUser();
   if(!authUser) return <UnAuthenticatedSidebar />;
 
-  const user = await getUserByClerkId(authUser.id); //if user is authenticated
+  const user = await getUserByClerkId(authUser.id); //if user is authenticated //POST
   if (!user) return null;
 
   return (
