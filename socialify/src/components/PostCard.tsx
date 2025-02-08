@@ -1,9 +1,9 @@
 "use client";
 
-import { getPosts } from '@/actions/post.action';
 import { useUser } from '@clerk/nextjs';
 import { useState } from 'react';
-import { toggleLike } from '@/actions/post.action';
+import { getPosts, toggleLike, deletePost, createComment } from '@/actions/post.action';
+import { toast } from 'react-hot-toast';
 
 type Posts = Awaited<ReturnType<typeof getPosts>>;
 type Post = Posts[number];
@@ -32,8 +32,35 @@ async function PostCard({ post, dbUserId }:{ post:Post, dbUserId:string | null})
       setIsLiking(false)
     }
   };
-  const handleAddComment = async () => {};
-  const handleDeletePost = async () => {};
+  const handleAddComment = async () => {
+    if (!newComment.trim() || isCommenting) return;
+
+    try {
+      setIsCommenting(true);
+      const result = await createComment(post.id, newComment);
+      if (result?.success) {
+        toast.success("Comment Post Successfully!")
+        setNewComment("");
+      }
+    } catch (error) {
+      toast.error("Failed to add comment post");
+    } finally {
+      setIsCommenting(false);
+    };
+  };
+  const handleDeletePost = async () => {
+    if (isDeleting) return;
+    try {
+      setIsDeleting(true);
+      const result = await deletePost(post.id);
+      if (result.success) toast.success("Post Delete Successfully!");
+      else throw new Error(result.error); //
+    } catch (error) {
+      toast.error("Failed to delete post");
+    } finally {
+      setIsDeleting(false);
+    };
+  };
 
   return (
     <>
