@@ -3,9 +3,11 @@ import CreatePost from "@/components/CreatePost";
 import WhoToFollow from "@/components/WhoToFollow";
 import PostCard from "@/components/PostCard";
 import { getPosts } from "@/actions/post.action";
+import { getDbUserId } from "@/actions/user.action";
 export default async function Home() {
   const user = await currentUser();
   const posts = await getPosts(); // GET
+  const dbUserId = await getDbUserId();
   console.log(posts);
   return (
     <>
@@ -21,7 +23,7 @@ export default async function Home() {
           //Post
           <div className="space-y-6">
             {posts.map((post => (
-              <PostCard key={post.id} post={post} />
+              <PostCard key={post.id} post={post} dbUserId={dbUserId}/>
             )))}
           </div>
         </div>
