@@ -31,7 +31,6 @@ export async function POST(request: Request) {
             title: body.title,
             completed: false,
         };
-
         tasks.push(newTask);
         return NextResponse.json(newTask, { status: 201 });
     } catch (error) {
