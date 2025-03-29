@@ -1,15 +1,6 @@
 async function TasksPage() {
     const response = await fetch("http://localhost:3000/api/tasks", {
         cache: "no-store",
-        next: {
-            revalidate: 0,
-        },
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-        },
-        method: "GET",
-        // body: JSON.stringify({}),
     });
     const tasks = await response.json();
     console.log(tasks);
