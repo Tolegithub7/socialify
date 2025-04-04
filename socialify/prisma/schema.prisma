@@ -38,7 +38,6 @@ model User {
   notificationsCreated Notification[] @relation("notificationCreator") // notifications triggered by a user
 }
 
-
 model Post{
   id String @id @default(cuid())
   authorId String
@@ -53,7 +52,6 @@ model Post{
   likes Like[]
   notifications Notification[]
 }
-
 
 model Comment{
   id String @id @default(cuid())
