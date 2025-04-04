@@ -146,49 +146,51 @@ export async function getUserLikedPosts(userId : string) {
 
 export async function updateProfile(formData: FormData) {
     try {
-      const { userId: clerkId } = await auth();
-      if (!clerkId) throw new Error("Unauthorized");
-  
-      const name = formData.get("name") as string;
-      const bio = formData.get("bio") as string;
-      const location = formData.get("location") as string;
-      const website = formData.get("website") as string;
-  
-      const user = await prisma.user.update({
-        where: { clerkId },
-        data: {
-          name,
-          bio,
-          location,
-          website,
-        },
-      });
-  
-      revalidatePath("/profile");
-      return { success: true, user };
+        const { userId: clerkId } = await auth();
+        if (!clerkId) throw new Error("Unauthorized");
+
+        const name = formData.get("name") as string;
+        const bio = formData.get("bio") as string;
+        const location = formData.get("location") as string;
+        const website = formData.get("website") as string;
+
+        const user = await prisma.user.update({
+            where: { clerkId },
+            data: {
+                name,
+                bio,
+                location,
+                website,
+            },
+        });
+
+        revalidatePath("/profile");
+        return { success: true, user };
     } catch (error) {
-      console.error("Error updating profile:", error);
-      return { success: false, error: "Failed to update profile" };
+        console.error("Error updating profile:", error);
+        return { success: false, error: "Failed to update profile" };
     }
-  }
-  
-  export async function isFollowing(userId: string) {
+}
+
+
+export async function isFollowing(userId: string) {
     try {
-      const currentUserId = await getDbUserId();
-      if (!currentUserId) return false;
-  
-      const follow = await prisma.follows.findUnique({
-        where: {
-          followerId_followingId: {
-            followerId: currentUserId,
-            followingId: userId,
-          },
-        },
-      });
-  
-      return !!follow;
+        const currentUserId = await getDbUserId();
+        if (!currentUserId) return false;
+        
+        const follow = await prisma.follows.findUnique({
+            where: {
+                followerId_followingId: {
+                    followerId: currentUserId,
+                    followingId: userId,
+                },
+            },
+        });
+    
+    return !!follow;
     } catch (error) {
-      console.error("Error checking follow status:", error);
-      return false;
+        console.error("Error checking follow status:", error);
+        return false;
     }
-  }
+}
+
