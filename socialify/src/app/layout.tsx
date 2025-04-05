@@ -20,7 +20,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Socialify",
-  description: "Create by TolNet",
+  description: "Modern Mini Social App Created by TolNet",
 };
 
 export default function RootLayout({
