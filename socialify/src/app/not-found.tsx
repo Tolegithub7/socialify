@@ -4,7 +4,7 @@ import { FiArrowRight } from 'react-icons/fi'
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-black dark:to-black p-4">
       <div className="text-center space-y-6 max-w-md">
         <div className="space-y-2">
           <h1 className="text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">
@@ -31,11 +31,11 @@ export default function NotFound() {
               <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </Button>
           </Link>
-          <Link href="/contact">
+          {/* <Link href="/contact">
             <Button variant="outline" className="w-full sm:w-auto">
               Contact Support
             </Button>
-          </Link>
+          </Link> */}
         </div>
         
         <div className="pt-8">
