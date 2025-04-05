@@ -20,7 +20,6 @@ export default async function Home() {
               null
             )
           }
-          <h1>post post</h1>
           <div className="space-y-6">
             {
               posts.map((post) => (

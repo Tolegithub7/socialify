@@ -25,7 +25,6 @@ function CreatePost() {
     try {
       const result = await createPost(content, imageUrl);
       if (result?.success) {
-        // reset the form
         setContent("");
         setImageUrl("");
         setShowImageUpload(false);
@@ -61,15 +60,14 @@ function CreatePost() {
 
           {(showImageUpload || imageUrl) && (
             <div className="border rounded-lg p-4">
-              {/* <ImageUpload
+              <ImageUpload
                 endpoint="postImage"
                 value={imageUrl}
                 onChange={(url) => {
                   setImageUrl(url);
                   if (!url) setShowImageUpload(false);
                 }}
-              /> */}
-              <h1>wait</h1>
+              />
             </div>
           )}
 

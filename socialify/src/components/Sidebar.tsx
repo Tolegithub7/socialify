@@ -10,9 +10,9 @@ import { LinkIcon, MapPinIcon } from "lucide-react";
 
 async function Sidebar() {
   const authUser = await currentUser();
-  if(!authUser) return <UnAuthenticatedSidebar />;
+  if (!authUser) return <UnAuthenticatedSidebar />;
 
-  const user = await getUserByClerkId(authUser.id); //if user is authenticated //POST
+  const user = await getUserByClerkId(authUser.id);
   if (!user) return null;
 
   return (
@@ -22,9 +22,6 @@ async function Sidebar() {
           <div className="flex flex-col items-center text-center">
             <Link
               href={`/profile/${user.username}`}
-              // href={`/profile/${
-              //   authUser.username ?? authUser.emailAddresses[0].emailAddress.split("@")[0]
-              // }`}
               className="flex flex-col items-center justify-center"
             >
               <Avatar className="w-20 h-20 border-2 ">
@@ -78,12 +75,11 @@ async function Sidebar() {
   );
 }
 
-export default Sidebar
-
+export default Sidebar;
 
 const UnAuthenticatedSidebar = () => (
   <div className="sticky top-20">
-    <Card className="w-full border-2 border-dashed">
+    <Card>
       <CardHeader>
         <CardTitle className="text-center text-xl font-semibold">Welcome Back!</CardTitle>
       </CardHeader>
